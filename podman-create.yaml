@@ -1,5 +1,5 @@
 ---
-- hosts: 172.23.77.18
+- hosts: worker
   tasks:
       - name: Create file
         file:
