@@ -1,5 +1,5 @@
 ---
-- hosts: worker
+- hosts: workerA
   tasks:
       - name: Create file
         file:
