@@ -1,7 +1,5 @@
 ---
 - hosts: all
   tasks:
-      - name: Create file
-        file:
-            path: /root/podman.test
-            state: touch
+      - name: Create The Container 
+        shell: podman run ubuntu:18.04 sleep 3000
