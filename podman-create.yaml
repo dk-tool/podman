@@ -5,4 +5,4 @@
         set_fact:
           podname: "--name {{ form_name }}"
       - name: Create The Container 
-        shell: podman run -d --name {{ podname }} ubuntu:18.04 sleep 3000
+        shell: podman run -d {{ podname }} ubuntu:18.04 sleep 3000
