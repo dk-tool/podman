@@ -1,7 +1,6 @@
 ---
 - hosts: worker
   gather_facts: false
-  connection: local
   
   tasks:
     - name: Create git repo path
