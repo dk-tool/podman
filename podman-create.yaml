@@ -1,5 +1,5 @@
 ---
-- host: worker
+- host: podman
   gather_facts: false
   connection: local
   
