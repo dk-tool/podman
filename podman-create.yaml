@@ -3,6 +3,6 @@
   tasks:
       - name: set fact
         set_fact:
-          podname: "{{ '--name "{{ form_name }}"' if (form_name != ' ') else ' ' }}"
+          podname: "{{ '--name {{ form_name }}' if (form_name != ' ') else ' ' }}"
       - name: Create The Container 
         shell: podman run -d {{ podname }} ubuntu:18.04 sleep 3000
