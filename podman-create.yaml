@@ -5,4 +5,4 @@
   
   tasks:
     - name: Create git repo path
-      shell: mkdir -P /runner/test
+      shell: mkdir /runner/test
