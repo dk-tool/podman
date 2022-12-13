@@ -3,6 +3,6 @@
   tasks:
       - name: set fact
         set_fact:
-          podname: "--name {{ form_name |default(" ") }}"
+          podname: "--name {{ form_name }}"
       - name: Create The Container 
         shell: podman run -d --name {{ podname }} ubuntu:18.04 sleep 3000
