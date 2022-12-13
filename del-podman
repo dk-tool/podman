@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+      - name: Delete The Container 
+        shell: podman rm -f ubuntu
