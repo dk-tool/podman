@@ -1,5 +1,5 @@
 ---
-- hosts: bastion.ocp4.demo.com
+- hosts: {{ host }}
   tasks:
       - name: Create file
         file:
