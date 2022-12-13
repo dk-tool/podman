@@ -1,7 +1,7 @@
 ---
-- hosts: worker
-  gather_facts: false
-  
+- hosts: 172.23.77.18
   tasks:
-    - name: Create git repo path
-      shell: mkdir /runner/test
+      - name: Create file
+        file:
+            path: /root/podman.test
+            state: touch
