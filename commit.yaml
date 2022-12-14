@@ -1,12 +1,12 @@
 ---
 - hosts: all
-  task:
+  tasks:
     - name: set facts
       set_fact:
         podname: "{{ form_name }}"
         registry: "{{ form_repo }}"
         msg: "{{ form_msg }}"
-  task:
+  tasks:
     - name: Commit {{ podname }} 
       shell: podman commit -m {{ msg }} {{ podname }} {{ registry }}
       
