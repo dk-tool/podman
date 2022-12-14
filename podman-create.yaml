@@ -12,8 +12,6 @@
           service1flag: "{{ ' ' if form_service1_node == '' else ':' }}"
           service2pflag: "{{ ' ' if form_service2p == '' else '-p ' }}"
           service2flag: "{{ ' ' if form_service2_node == '' else ':' }}"
-      - debug:
-          var: podnameflag, volume1flag, volume1tflag, volume2flag, volume2tflag, service1pflag, service1flag, service2pflag, service2flag
       - name: set fact2
         set_fact:
           podname: "{{ podnameflag + form_name }}"
@@ -21,7 +19,5 @@
           volume2: "{{ volume2flag + form_volume2_source + volume2tflag + form_volume2_target }}"
           service1: "{{ service1pflag + form_service1p + service1flag + form_service1_node }}"
           service2: "{{ service2pflag + form_service2p + service2flag + form_service2_node }}"
-      - debug:
-          var: podname, volume1, volume2, service1, service2
       - name: Create The Container 
         shell: podman run -d {{ podname }} {{ volume1 }} {{ volume2 }} {{ service1 }} {{ service2 }} {{ form_image }} {{ form_cmd }}
