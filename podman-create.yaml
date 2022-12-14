@@ -4,22 +4,26 @@
       - name: set fact1
         set_fact:
           podnameflag: "{{ ' ' if form_name == '' else '--name ' }}"
-          volume1flag: "{{ ' ' if form_volume1 == '' else '-v ' }}"
-          volume2flag: "{{ ' ' if form_volume2 == '' else '-v ' }}"
+          volume1flag: "{{ ' ' if form_volume1_source == '' else '-v ' }}"
+          volume1tflag: "{{ ' ' if form_volume1_target == '' else ':' }}"
+          volume2flag: "{{ ' ' if form_volume2_source == '' else '-v ' }}"
+          volume2tflag: "{{ ' ' if form_volume2_target == '' else ':' }}"
       - debug:
           var: 
           - podnameflag
           - volume1flag
+          - volume1tflag
           - volume2flag
+          - volume2tflag
       - name: set fact2
         set_fact:
           podname: "{{ podnameflag + form_name }}"
-          volume1name: "{{ volume1flag + form_volume1 }}"
-          volume2name: "{{ volume2flag + form_volume2 }}"
+          volume1: "{{ volume1flag + form_volume1 + volume1tflag + form_volume_target1}}"
+          volume2: "{{ volume2flag + form_volume2 + volume1tflag + form_volume_target2}}"
       - debug:
           var: 
           - podname
-          - volume1name
-          - volume2name
+          - volume1
+          - volume2
       #- name: Create The Container 
         #shell: podman run -d {{ podname }} ubuntu:18.04 sleep 3000
