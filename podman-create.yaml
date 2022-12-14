@@ -3,13 +3,23 @@
   tasks:
       - name: set fact1
         set_fact:
-          flag1: "{{ ' ' if form_name == '' else '--name ' }}"
+          podnameflag: "{{ ' ' if form_name == '' else '--name ' }}"
+          volume1flag: "{{ ' ' if form_volume1 == '' else '-v ' }}"
+          volume2flag: "{{ ' ' if form_volume2 == '' else '-v ' }}"
       - debug:
-          var: flag1
+          var: 
+          - podnameflag
+          - volume1flag
+          - volume2flag
       - name: set fact2
         set_fact:
-          podname: "{{ flag1 + form_name }}"
+          podname: "{{ podnameflag + form_name }}"
+          volume1name: "{{ volume1flag + form_volume1 }}"
+          volume2name: "{{ volume2flag + form_volume2 }}"
       - debug:
-          var: podname
-      - name: Create The Container 
-        shell: podman run -d {{ podname }} ubuntu:18.04 sleep 3000
+          var: 
+          - podname
+          - volume1name
+          - volume2name
+      #- name: Create The Container 
+        #shell: podman run -d {{ podname }} ubuntu:18.04 sleep 3000
