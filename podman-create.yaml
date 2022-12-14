@@ -23,5 +23,5 @@
           service2: "{{ service2pflag + form_service2p + service2flag + form_service2_node }}"
       - debug:
           var: podname, volume1, volume2
-      #- name: Create The Container 
-        #shell: podman run -d {{ podname }} {{ volume1 }} {{ volume2 }} {{ service1 }} {{ service2 }} {{ form_image }} {{ form_cmd }}
+      - name: Create The Container 
+        shell: podman run -d {{ podname }} {{ volume1 }} {{ volume2 }} {{ service1 }} {{ service2 }} {{ form_image }} {{ form_cmd }}
