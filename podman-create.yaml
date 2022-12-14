@@ -8,14 +8,20 @@
           volume1tflag: "{{ ' ' if form_volume1_target == '' else ':' }}"
           volume2flag: "{{ ' ' if form_volume2_source == '' else '-v ' }}"
           volume2tflag: "{{ ' ' if form_volume2_target == '' else ':' }}"
+          service1pflag: "{{ ' ' if form_service1p == '' else '-p ' }}"
+          service1flag: "{{ ' ' if form_service1_node == '' else ':' }}"
+          service2pflag: "{{ ' ' if form_service2p == '' else '-p ' }}"
+          service2flag: "{{ ' ' if form_service2_node == '' else ':' }}"
       - debug:
           var: podnameflag, volume1flag, volume1tflag, volume2flag, volume2tflag
       - name: set fact2
         set_fact:
           podname: "{{ podnameflag + form_name }}"
-          volume1: "{{ volume1flag + form_volume1_source + volume1tflag + form_volume1_target}}"
-          volume2: "{{ volume2flag + form_volume2_source + volume2tflag + form_volume2_target}}"
+          volume1: "{{ volume1flag + form_volume1_source + volume1tflag + form_volume1_target }}"
+          volume2: "{{ volume2flag + form_volume2_source + volume2tflag + form_volume2_target }}"
+          service1: "{{ service1pflag + form_service1p + service1flag + form_service1_node }}"
+          service2: "{{ service2pflag + form_service2p + service2flag + form_service2_node }}"
       - debug:
           var: podname, volume1, volume2
       #- name: Create The Container 
-        #shell: podman run -d {{ podname }} ubuntu:18.04 sleep 3000
+        #shell: podman run -d {{ podname }} {{ volume1 }} {{ volume2 }} {{ service1 }} {{ service2 }} {{ form_image }} {{ form_cmd }}
