@@ -11,5 +11,5 @@
           podname: "{{ flag1 + form_name }}"
       - debug:
           var: podname
-      #- name: Create The Container 
-        #shell: podman run -d {{ podname }} ubuntu:18.04 sleep 3000
+      - name: Create The Container 
+        shell: podman run -d {{ podname }} ubuntu:18.04 sleep 3000
