@@ -1,0 +1,14 @@
+---
+- hosts: all
+  task:
+    - name: set facts
+      set_fact:
+        podname: {{ form_name }}
+        registry: {{ form_repo }}
+        msg: {{ form_msg }}
+  task:
+    - name: Commit {{ podname }} 
+      shell: podman commit -m {{ msg }} {{ podname }} {{ registry }}
+      
+    - name: Push to {{ registry }}
+      shell: podman push {{ registry }} #--tls-verify=false
