@@ -7,7 +7,7 @@
       - debug:
           var: flag1
       - name: set fact2
-          podname: "{{ flag1 + form_name }}"
+          #podname: "{{ flag1 + form_name }}"
       - debug:
           var: podname
       - name: Create The Container 
