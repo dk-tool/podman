@@ -8,7 +8,7 @@
         msg: "{{ form_msg }}"
         
     - name: Commit {{ podname }} 
-      shell: podman commit -m {{ msg }} {{ podname }} {{ registry }}
+      shell: podman commit -f docker -m '"'{{ msg }}'"' {{ podname }} {{ registry }}
       
     - name: Push to {{ registry }}
       shell: podman push {{ registry }} #--tls-verify=false
