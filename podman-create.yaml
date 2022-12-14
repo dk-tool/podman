@@ -16,9 +16,6 @@
           volume1: "{{ volume1flag + form_volume1_source + volume1tflag + form_volume1_target}}"
           volume2: "{{ volume2flag + form_volume2_source + volume2tflag + form_volume2_target}}"
       - debug:
-          var: 
-            podname
-            volume1
-            volume2
+          var: podname, volume1, volume2
       #- name: Create The Container 
         #shell: podman run -d {{ podname }} ubuntu:18.04 sleep 3000
