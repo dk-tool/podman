@@ -17,8 +17,8 @@
       - name: set fact2
         set_fact:
           podname: "{{ podnameflag + form_name }}"
-          volume1: "{{ volume1flag + form_volume1 + volume1tflag + form_volume_target1}}"
-          volume2: "{{ volume2flag + form_volume2 + volume1tflag + form_volume_target2}}"
+          volume1: "{{ volume1flag + form_volume1_source + volume1tflag + form_volume_target1}}"
+          volume2: "{{ volume2flag + form_volume2_source + volume1tflag + form_volume_target2}}"
       - debug:
           var: podname
           var: volume1
